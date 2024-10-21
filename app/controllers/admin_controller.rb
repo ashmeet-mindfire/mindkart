@@ -3,7 +3,6 @@ class AdminController < ApplicationController
   before_action :admin_only
   def index
     @books = Book.all
-    puts @books
   end
 
   private

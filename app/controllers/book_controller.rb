@@ -12,6 +12,14 @@ class BookController < ApplicationController
     end
   end
 
+  def destroy
+    puts "Ashmeet #{params}"
+    @book = Book.find(params[:id])
+    puts @book.title
+    @book.destroy
+    redirect_to admin_path, notice: "Book deleted successfully"
+  end
+
   private
   def book_params
     params.require(:book).permit(:title, :author, :isbn, :price, :description, :stock_quantity, :published_date, :publisher, :genre, :cover_image)

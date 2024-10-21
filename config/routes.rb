@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "admin", to: "admin#index"
   get "admin/book/new", to: "book#new"
   post "admin/book/new", to: "book#create"
+  delete "admin/:id", as: "delete_book", to: "book#destroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

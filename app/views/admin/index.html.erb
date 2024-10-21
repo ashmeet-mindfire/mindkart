@@ -2,7 +2,7 @@
 
 <div class="mt-4 d-flex justify-content-between align-items-center">
     <h2 class="">Books</h2>
-    <%= link_to "Add", admin_book_new_path, class:"btn btn-secondary" %>
+    <%= link_to "Add Book", admin_book_new_path, class:"btn btn-secondary" %>
 </div>
 
 <table class="table table-striped mt-2">
@@ -29,7 +29,7 @@
       <td><%= book.description[0..50]%>...</td>
       <td><%= book.price%></td>
       <td><%= book.stock_quantity%></td>
-      <td>Edit<%# link_to image_tag("icons/view-icon.svg"), friend %> <%# link_to image_tag("icons/edit-icon.svg"), edit_friend_path(friend.id) %> <%# link_to "#{friend.posts_count}", friend_posts_path(friend.id) %></td>
+      <td><%= link_to image_tag("icons/delete-icon.svg"), delete_book_path(book.id), method: :delete %><%# link_to image_tag("icons/view-icon.svg"), friend %> <%#= link_to image_tag("icons/edit-icon.svg"), edit_friend_path(friend.id) %> <%# link_to "#{friend.posts_count}", friend_posts_path(friend.id) %></td>
     </tr>
   <% end %>
   </tbody>
