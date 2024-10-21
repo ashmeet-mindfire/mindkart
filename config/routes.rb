@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get "book/new"
   devise_for :users
   root to: "home#index"
-  get "admin/index"
+  get "admin", to: "admin#index"
+  get "admin/book/new", to: "book#new"
+  post "admin/book/new", to: "book#create"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

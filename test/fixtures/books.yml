@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  ISBN: MyString
+  genre: MyString
+  price: 9.99
+  description: MyString
+  stock_quantity: 1
+  cover_image: MyString
+  published_date: 2024-10-21
+  publisher: MyString
+
+two:
+  title: MyString
+  author: MyString
+  ISBN: MyString
+  genre: MyString
+  price: 9.99
+  description: MyString
+  stock_quantity: 1
+  cover_image: MyString
+  published_date: 2024-10-21
+  publisher: MyString
