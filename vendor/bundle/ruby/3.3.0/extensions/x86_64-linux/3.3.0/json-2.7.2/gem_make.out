@@ -1,0 +1,16 @@
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+/home/ashmeet/.asdf/installs/ruby/3.3.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-23g20a sitelibdir\=./.gem.20241021-221104-23g20a clean
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-23g20a sitelibdir\=./.gem.20241021-221104-23g20a
+make: Nothing to be done for 'all'.
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-23g20a sitelibdir\=./.gem.20241021-221104-23g20a install
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/json-2.7.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-23g20a sitelibdir\=./.gem.20241021-221104-23g20a clean

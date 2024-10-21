@@ -1,0 +1,27 @@
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/io-console-0.7.2/ext/io/console
+/home/ashmeet/.asdf/installs/ruby/3.3.5/bin/ruby extconf.rb
+checking for rb_io_path()... yes
+checking for rb_io_descriptor()... yes
+checking for rb_io_get_write_io()... yes
+checking for rb_io_closed_p()... yes
+checking for rb_io_open_descriptor()... yes
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for HAVE_RUBY_FIBER_SCHEDULER_H... yes
+creating Makefile
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-59ble9 sitelibdir\=./.gem.20241021-221104-59ble9 clean
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-59ble9 sitelibdir\=./.gem.20241021-221104-59ble9
+compiling console.c
+linking shared-object io/console.so
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-59ble9 sitelibdir\=./.gem.20241021-221104-59ble9 install
+/usr/bin/install -c -m 0755 console.so ./.gem.20241021-221104-59ble9/io
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/io-console-0.7.2/ext/io/console
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-59ble9 sitelibdir\=./.gem.20241021-221104-59ble9 clean

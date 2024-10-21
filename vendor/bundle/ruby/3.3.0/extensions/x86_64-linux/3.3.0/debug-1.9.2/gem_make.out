@@ -1,0 +1,19 @@
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+/home/ashmeet/.asdf/installs/ruby/3.3.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-24cvmv sitelibdir\=./.gem.20241021-221104-24cvmv clean
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-24cvmv sitelibdir\=./.gem.20241021-221104-24cvmv
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-24cvmv sitelibdir\=./.gem.20241021-221104-24cvmv install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20241021-221104-24cvmv/debug
+
+current directory: /home/ashmeet/Code/Ruby/Rails/mindkart/vendor/bundle/ruby/3.3.0/gems/debug-1.9.2/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20241021-221104-24cvmv sitelibdir\=./.gem.20241021-221104-24cvmv clean
