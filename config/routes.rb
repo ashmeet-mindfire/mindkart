@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   get "admin/book/edit/:id", as: "admin_book_edit", to: "book#edit"
   put "admin/book/edit/:id", as: "admin_book_update", to: "book#update"
   delete "admin/:id", as: "delete_book", to: "book#destroy"
-
-  # Shop
-  get "shop", to: "shop#index"
+  get "book/index", as: "book_list", to: "book#index"
+  get "book/details/:id", as: "book_details", to: "book#details"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

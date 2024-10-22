@@ -1,0 +1,15 @@
+<h1><%= @book.title%></h1>
+<div class="d-flex justify-content-between mt-5">
+    <div class="w-100">
+        <p>Author: <span class="fw-semibold"><%= @book.author %></span></p>
+        <p><span class="fw-semibold">Description</span>: <%= @book.description %></p>
+        <p>Price: <span class="fw-semibold"><%= @book.price %></span></p>
+        <p>Publisher: <span class="fw-semibold"><%= @book.publisher %></span></p>
+        <p>Published Date: <span class="fw-semibold"><%= @book.published_date %></span></p>
+        <p>ISBN: <span class="fw-semibold"><%= @book.isbn %></span></p>
+        <a href="#" class="btn btn-secondary">Add To Cart</a>
+    </div>
+    <div class="w-100">
+        <%= image_tag @book.cover_image, class: "img-fluid", style: "" %>
+    </div>
+</div>

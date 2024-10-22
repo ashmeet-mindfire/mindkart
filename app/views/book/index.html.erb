@@ -8,7 +8,7 @@
                 <p>Author: <span class="fw-semibold"><%= book.author %></span></p>
                 <p>Price: <span class="fw-semibold"><%= book.price %></span></p>
                 <div class="d-flex justify-content-between">
-                    <a href="#" class="btn btn-secondary">View</a>
+                    <%= link_to 'View', book_details_path(book.id), class: "btn btn-secondary" %>
                     <a href="#" class="btn btn-secondary">Add To Cart</a>
                 </div>
             </div>
