@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
+  get "shop/index"
   get "book/new"
   devise_for :users
   root to: "home#index"
   get "admin", to: "admin#index"
+
+  # Book
   get "admin/book/new", to: "book#new"
   post "admin/book/new", to: "book#create"
+  get "admin/book/edit/:id", as: "admin_book_edit", to: "book#edit"
+  put "admin/book/edit/:id", as: "admin_book_update", to: "book#update"
   delete "admin/:id", as: "delete_book", to: "book#destroy"
+
+  # Shop
+  get "shop", to: "shop#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

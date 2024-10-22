@@ -1,6 +1,11 @@
 <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand">MindKart</a>
+        <div class="d-flex gap-4">
+            <a class="navbar-brand">MindKart</a>
+            <ul class="navbar-nav d-flex flex-row gap-4">
+                <li class="nav-item"><%= link_to 'Shop', shop_path, class: "nav-link" %></li>
+            </ul>
+        </div>
         <ul class="navbar-nav d-flex flex-row gap-4">
             <% if user_signed_in? %>
                 <% if current_user.admin? %>

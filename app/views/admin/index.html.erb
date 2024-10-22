@@ -20,16 +20,16 @@
   </thead>
   <tbody>
 
-  <% @books.each do |book| %>
+  <% @books.each_with_index do |book, idx| %>
       <tr>
-      <th scope="row"><%= book.id%></th>
+      <th scope="row"><%= idx + 1%></th>
       <td><%= book.title%></td>
       <td><%= book.author%></td>
       <td><%= book.genre%></td>
       <td><%= book.description[0..50]%>...</td>
       <td><%= book.price%></td>
       <td><%= book.stock_quantity%></td>
-      <td><%= link_to image_tag("icons/delete-icon.svg"), delete_book_path(book.id), method: :delete %><%# link_to image_tag("icons/view-icon.svg"), friend %> <%#= link_to image_tag("icons/edit-icon.svg"), edit_friend_path(friend.id) %> <%# link_to "#{friend.posts_count}", friend_posts_path(friend.id) %></td>
+      <td><%= link_to image_tag("icons/delete-icon.svg"), delete_book_path(book.id), method: :delete %><%= link_to image_tag("icons/edit-icon.svg"), admin_book_edit_path(book.id) %> <%#= link_to image_tag("icons/edit-icon.svg"), edit_friend_path(friend.id) %> <%# link_to "#{friend.posts_count}", friend_posts_path(friend.id) %></td>
     </tr>
   <% end %>
   </tbody>

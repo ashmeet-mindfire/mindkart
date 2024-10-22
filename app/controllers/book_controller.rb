@@ -12,6 +12,19 @@ class BookController < ApplicationController
     end
   end
 
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to admin_path, notice: "Book was successfully updated."
+    else
+      render :edit
+    end
+  end
+
   def destroy
     puts "Ashmeet #{params}"
     @book = Book.find(params[:id])

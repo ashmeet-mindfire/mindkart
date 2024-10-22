@@ -1,0 +1,62 @@
+<%= form_with(model: book, url: form_url, method: form_method) do |f| %>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-sm">
+            <%= f.label :title, class: "form-label" %><br />
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+            <div class="col-sm">
+            <%= f.label :author, class: "form-label" %><br />
+            <%= f.text_field :author, class: "form-control" %>
+        </div>
+            <div class="col-sm">
+            <%= f.label :isbn, class: "form-label text-uppercase" %><br />
+            <%= f.text_field :isbn, class: "form-control" %>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <%= f.label :price, class: "form-label" %><br />
+            <%= f.number_field :price, class: "form-control" %>
+        </div>
+
+        <div class="col-sm">
+            <%= f.label :description, class: "form-label" %><br />
+            <%= f.text_field :description, class: "form-control" %>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm">
+            <%= f.label :stock_quantity, class: "form-label" %><br />
+            <%= f.number_field :stock_quantity, class: "form-control" %>
+        </div>
+
+        <div class="col-sm">
+            <%= f.label :published_date, class: "form-label" %><br />
+            <%= f.date_field :published_date, class: "form-control" %>
+        </div>
+        <div class="col-sm">
+            <%= f.label :publisher, class: "form-label" %><br />
+            <%= f.text_field :publisher, class: "form-control" %>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm">
+            <%= f.label :genre, class: "form-label" %><br />
+            <%= f.text_field :genre, class: "form-control" %>
+        </div>
+
+        <div class="col-sm">
+            <%= f.label :cover_image, class: "form-label" %><br />
+            <%= f.text_field :cover_image, class: "form-control" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <%= f.submit @book.persisted? ? 'Update Book' : 'Create Book', class: 'btn btn-secondary' %>
+        </div>
+    </div>
+</div>
+
+
+<% end %>
