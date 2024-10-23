@@ -13,4 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.flash {
+    position: absolute;
+}
 
+.flash .notice {
+    color: green;
+}

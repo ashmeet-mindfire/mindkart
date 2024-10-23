@@ -18,11 +18,32 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="display: relative;">
     <%= render "home/header" %>
+    <div id="flash-notice" class="flash">
+      <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert"><%= flash[:alert] %></p>
+      <% end %>
+    </div>
     <div class="container my-4">
       <%= yield %>
     </div>
+    <script>
+      function hideFlashNotice() {
+        const flashNotice = document.getElementById('flash-notice');
+        if (flashNotice) {
+          setTimeout(function() {
+            flashNotice.style.transition = 'opacity 0.5s ease';
+            flashNotice.style.opacity = '0';
+            setTimeout(function() { flashNotice.remove(); }, 500); // Remove after fading out
+          }, 3000); // 5000ms = 5 seconds
+        }
+      }
+      document.addEventListener('turbo:load', hideFlashNotice);
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
