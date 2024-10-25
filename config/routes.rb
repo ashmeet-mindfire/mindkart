@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   patch "cart/:id", as: "update_cart_item", to: "cart#update_item"
   delete "cart/:id", as: "delete_book_from_cart", to: "cart#remove_item"
 
+  # Order
+  post "order", as: "create_order", to: "orders#create"
+  get "order", as: "order_list", to: "orders#show"
+  get "order/:id", as: "order_details", to: "orders#details"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

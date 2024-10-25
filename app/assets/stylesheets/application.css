@@ -15,8 +15,16 @@
  */
 .flash {
     position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .flash .notice {
-    color: green;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    margin: 0;
+    padding: 10px;
 }

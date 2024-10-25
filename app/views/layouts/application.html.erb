@@ -39,7 +39,7 @@
             flashNotice.style.transition = 'opacity 0.5s ease';
             flashNotice.style.opacity = '0';
             setTimeout(function() { flashNotice.remove(); }, 500); // Remove after fading out
-          }, 3000); // 5000ms = 5 seconds
+          }, 5000); // 5000ms = 5 seconds
         }
       }
       document.addEventListener('turbo:load', hideFlashNotice);

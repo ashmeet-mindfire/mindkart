@@ -3,6 +3,7 @@ class CartController < ApplicationController
 
   def index
     @cart = current_user.cart || Cart.create(user: current_user)
+    @order = Order.new
   end
 
   def add_item
