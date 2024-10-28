@@ -1,9 +1,11 @@
 class BookController < ApplicationController
   def index
     @books = Book.all
+    @categories = Category.all
   end
   def new
     @book = Book.new
+    @categories = Category.all
   end
 
   def details
@@ -15,12 +17,14 @@ class BookController < ApplicationController
     if @book.save
       redirect_to admin_path, notice: "Book created successfully"
     else
+      @categories = Category.all
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
     @book = Book.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -28,6 +32,7 @@ class BookController < ApplicationController
     if @book.update(book_params)
       redirect_to admin_path, notice: "Book was successfully updated."
     else
+      @categories = Category.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -42,6 +47,6 @@ class BookController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :author, :isbn, :price, :description, :stock_quantity, :published_date, :publisher, :genre, :image)
+    params.require(:book).permit(:title, :author, :isbn, :price, :description, :stock_quantity, :published_date, :publisher, :category_id, :image)
   end
 end

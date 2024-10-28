@@ -2,11 +2,12 @@ class Book < ApplicationRecord
   has_many :cart_items
   has_many :carts, through: :cart_items
   has_one_attached :image
+  belongs_to :category
 
   validates :title, presence: true
   validates :author, presence: true
   validates :isbn, presence: true
-  validates :genre, presence: true
+  validates :category_id, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :stock_quantity, presence: true

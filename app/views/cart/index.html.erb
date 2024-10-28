@@ -20,7 +20,7 @@
         <tr class="align-items-center">
         <td><%= cart_item.book.title%></td>
         <td><%= cart_item.book.author%></td>
-        <td><%= cart_item.book.genre%></td>
+        <td><%= cart_item.book.category.name%></td>
         <td>
             <%= form_with url: update_cart_item_path(cart_item.id), method: :patch, class: "d-flex gap-2", local: true do %>
             <%= number_field_tag 'quantity', cart_item.quantity, min: 1, class: 'form-control', style: "width:60px;" %>
