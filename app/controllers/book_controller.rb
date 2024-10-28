@@ -15,7 +15,7 @@ class BookController < ApplicationController
     if @book.save
       redirect_to admin_path, notice: "Book created successfully"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +28,7 @@ class BookController < ApplicationController
     if @book.update(book_params)
       redirect_to admin_path, notice: "Book was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -29,6 +29,14 @@
     padding: 10px;
 }
 
+.flash .alert {
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    margin: 0;
+    padding: 10px;
+}
+
 .home__title {
     font-size: 80px;
     font-weight: bolder;
