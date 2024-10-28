@@ -1,5 +1,5 @@
 class ChangeDefaultAdminInUsers < ActiveRecord::Migration[7.2]
   def change
-    change_column_default :users, :admin, true
+    change_column_default :users, :admin, false
   end
 end
