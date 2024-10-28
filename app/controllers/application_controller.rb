@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart_count
-    @cart_count = current_user.cart&.total_items || 0
+    if current_user
+      @cart_count = current_user.cart&.total_items || 0
+    end
   end
 end

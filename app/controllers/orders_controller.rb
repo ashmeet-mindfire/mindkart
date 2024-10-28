@@ -25,10 +25,20 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    @order = Order.find(params[:id])
+    if @order.update(update_order_params)
+      redirect_to admin_path, notice: "Order status updated successfully"
+    end
+  end
   private
 
   def order_params
     params.require(:order).permit(:user_id)
+  end
+
+  def update_order_params
+    params.require(:order).permit(:status)
   end
 
   def create_order_items

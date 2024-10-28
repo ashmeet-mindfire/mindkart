@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post "order", as: "create_order", to: "orders#create"
   get "order", as: "order_list", to: "orders#show"
   get "order/:id", as: "order_details", to: "orders#details"
+  patch "order/:id", as: "order_update", to: "orders#update"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

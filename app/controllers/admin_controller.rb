@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   before_action :admin_only
   def index
     @books = Book.all
+    @orders = Order.all.order(id: :asc)
   end
 
   private

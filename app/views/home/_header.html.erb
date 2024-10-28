@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
         <div class="d-flex gap-4">
-            <a class="navbar-brand">MindKart</a>
+            <%= link_to 'MindKart', root_path, class: "navbar-brand" %>
             <ul class="navbar-nav d-flex flex-row gap-4">
                 <li class="nav-item"><%= link_to 'Books', book_list_path, class: "nav-link" %></li>
             </ul>

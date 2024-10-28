@@ -16,7 +16,7 @@
       <th scope="row"><%= idx + 1%></th>
       <td><%= order.total%></td>
       <td class="text-capitalize"><%= order.status%></td>
-      <td><%= link_to "Details", order_details_path(order.id)%></td>
+      <td><%= link_to image_tag("icons/details-icon.svg"), order_details_path(order.id)%></td>
     </tr>
   <% end %>
   </tbody>
