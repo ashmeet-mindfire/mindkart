@@ -5,6 +5,7 @@ class AdminController < ApplicationController
     @books = Book.all
     @orders = Order.all.order(id: :asc)
     @categories = Category.all
+    @users = User.all
   end
 
   private
