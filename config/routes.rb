@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "category/index"
   get "shop/index"
   get "book/new"
   devise_for :users
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   post "admin/book/new", to: "book#create"
   get "admin/book/edit/:id", as: "admin_book_edit", to: "book#edit"
   put "admin/book/edit/:id", as: "admin_book_update", to: "book#update"
-  delete "admin/:id", as: "delete_book", to: "book#destroy"
+  delete "admin/book/delete/:id", as: "delete_book", to: "book#destroy"
   get "book/index", as: "book_list", to: "book#index"
   get "book/details/:id", as: "book_details", to: "book#details"
 
@@ -25,6 +26,11 @@ Rails.application.routes.draw do
   get "order", as: "order_list", to: "orders#show"
   get "order/:id", as: "order_details", to: "orders#details"
   patch "order/:id", as: "order_update", to: "orders#update"
+
+  # Category
+  get "admin/category/new", as: "admin_category_new", to: "category#new"
+  post "admin/category/create", as: "admin_category_create", to: "category#create"
+  delete "admin/category/delete/:id", as: "admin_category_delete", to: "category#destroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

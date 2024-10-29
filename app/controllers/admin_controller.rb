@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   def index
     @books = Book.all
     @orders = Order.all.order(id: :asc)
+    @categories = Category.all
   end
 
   private

@@ -38,9 +38,7 @@ class BookController < ApplicationController
   end
 
   def destroy
-    puts "Ashmeet #{params}"
     @book = Book.find(params[:id])
-    puts @book.title
     @book.destroy
     redirect_to admin_path, notice: "Book deleted successfully"
   end
