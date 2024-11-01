@@ -56,13 +56,8 @@
       <th scope="row"><%= idx + 1%></th>
       <th scope="row"><%= order.user_id%></th>
       <td><%= order.total%></td>
-      <td class="text-capitalize">
-        <%= form_with model: order, url: order_update_path(order.id), method: :patch, class: "d-flex gap-2", local: true do %>
-            <%= select_tag "order[status]", options_for_select(["Pending", "In Review", "Processed", "Shipped", "Delivered"], selected: order.status), class: "form-select", style: "width: 150px;" %>
-            <%= submit_tag 'Update', class: 'btn btn-sm btn-dark' %>
-        <% end %>
-      </td>
-      <td><%= link_to image_tag("icons/details-icon.svg"), order_details_path(order.id)%></td>
+      <td><%= order.status%></td>
+      <td><%= link_to image_tag("icons/details-icon.svg"), order_path(order.id)%></td>
     </tr>
   <% end %>
   </tbody>
@@ -124,3 +119,7 @@
   </tbody>
 </table>
 <%#= user.admin == true ? "Yes" : "No"%>
+<%#= form_with model: order, url: order_path(order.id), method: :patch, class: "d-flex gap-2", local: true do %>
+    <%#= select_tag "order[status]", options_for_select(["Pending", "In Review", "Processed", "Shipped", "Delivered"], selected: order.status), class: "form-select", style: "width: 150px;" %>
+    <%#= submit_tag 'Update', class: 'btn btn-sm btn-dark' %>
+<%# end %>

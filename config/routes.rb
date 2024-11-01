@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   # get "admin/book/edit/:id", as: "admin_book_edit", to: "book#edit"
   # put "admin/book/edit/:id", as: "admin_book_update", to: "book#update"
   # delete "admin/book/delete/:id", as: "delete_book", to: "book#destroy"
-  get "book/index", as: "book_list", to: "book#index"
-  get "book/details/:id", as: "book_details", to: "book#details"
+  # get "book/index", as: "book_list", to: "book#index"
+  # get "book/details/:id", as: "book_details", to: "book#details"
 
   # Cart
   get "cart", as: "cart", to: "cart#index"
@@ -22,10 +22,10 @@ Rails.application.routes.draw do
   delete "cart/:id", as: "delete_book_from_cart", to: "cart#remove_item"
 
   # Order
-  post "order", as: "create_order", to: "orders#create"
-  get "order", as: "order_list", to: "orders#show"
-  get "order/:id", as: "order_details", to: "orders#details"
-  patch "order/:id", as: "order_update", to: "orders#update"
+  # post "order", as: "create_order", to: "orders#create"
+  # get "order", as: "order_list", to: "orders#show"
+  # get "order/:id", as: "order_details", to: "orders#details"
+  # patch "order/:id", as: "order_update", to: "orders#update"
 
   # Category
   get "admin/category/new", as: "admin_category_new", to: "category#new"
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :books, only: [ :index, :show ]
+  resources :orders, only: [ :index, :show, :create ]
   resources :dashboard, only: [ :index ]
   scope :dashboard do
     resources :books, except: [ :index, :show ]

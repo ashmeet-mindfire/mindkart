@@ -34,7 +34,7 @@
     <% end %>
     </tbody>
     </table>
-    <%= form_with model: @order, url: create_order_path, method: :post do |form| %>
+    <%= form_with model: @order do |form| %>
         <div class="d-flex justify-content-between">
             <h4>Total Price</h4>
             <h4><%=@cart.total_price %></h4>

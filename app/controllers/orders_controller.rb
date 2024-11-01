@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
-  def show
+  def index
     @orders = current_user.orders
   end
 
-  def details
+  def show
     @order = current_user.orders.find(params[:id])
     @order_items = @order.order_items
   end
@@ -19,18 +19,20 @@ class OrdersController < ApplicationController
       @order.calculate_total
       @order.save
       current_user.cart.destroy
-      redirect_to order_list_path, notice: "Order placed successfully!"
+      redirect_to orders_path, notice: "Order placed successfully!"
     else
       redirect_to cart_path, notice: "Failed to place order"
     end
   end
 
-  def update
-    @order = Order.find(params[:id])
-    if @order.update(update_order_params)
-      redirect_to admin_path, notice: "Order status updated successfully"
-    end
-  end
+  # def update
+  #   @order = Order.find(params[:id])
+  #   if @order.update(update_order_params)
+  #     redirect_to dashboard_index_path, notice: "Order status updated successfully"
+  #   else
+  #     redirect_to dashboard_index_path, notice: "Something went wrong"
+  #   end
+  # end
   private
 
   def order_params
