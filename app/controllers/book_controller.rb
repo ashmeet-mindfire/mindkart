@@ -1,7 +1,6 @@
 class BookController < ApplicationController
   def index
     @books = Book.all
-    @categories = Category.all
   end
   def new
     @book = Book.new

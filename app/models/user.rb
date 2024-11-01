@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :cart, dependent: :destroy
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   def admin?
     self.admin == true

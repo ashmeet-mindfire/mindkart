@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   post "admin/category/create", as: "admin_category_create", to: "category#create"
   delete "admin/category/delete/:id", as: "admin_category_delete", to: "category#destroy"
 
+  # User
+  patch "admin/user/:id", as: "make_admin", to: "user#make_admin"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

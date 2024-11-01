@@ -113,8 +113,14 @@
       <td><%= user.name%></td>
       <td><%= user.email%></td>
       <td><%= user.mobile%></td>
-      <td><%= user.admin == true ? "Yes" : "No"%></td>
+      <td>
+        <%= form_with model: user, url: make_admin_path(user.id), method: :patch, class: "d-flex gap-2", local: true do |f| %>
+            <%= f.select :admin, [["Yes", true], ["No", false]], {selected: user.admin}, class: "form-select" %>
+            <%= f.submit 'Update', class: 'btn btn-sm btn-dark' %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<%#= user.admin == true ? "Yes" : "No"%>
