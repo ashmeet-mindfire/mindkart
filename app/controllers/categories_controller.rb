@@ -1,7 +1,4 @@
-class CategoryController < ApplicationController
-  def index
-  end
-
+class CategoriesController < ApplicationController
   def new
     @category = Category.new
   end
@@ -9,7 +6,7 @@ class CategoryController < ApplicationController
   def create
     @category = Category.create(category_params)
     if @category.save
-      redirect_to admin_path, notice: "Category created successfully"
+      redirect_to dashboard_index_path, notice: "Category created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,7 +15,7 @@ class CategoryController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to admin_path, notice: "Category deleted successfully"
+    redirect_to dashboard_index_path, notice: "Category deleted successfully"
   end
 
   private
