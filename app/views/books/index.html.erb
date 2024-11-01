@@ -10,7 +10,7 @@
                 <p>Author: <span class="fw-semibold"><%= book.author %></span></p>
                 <p>Price: <span class="fw-semibold"><%= book.price %></span></p>
                 <div class="d-flex justify-content-between">
-                    <%= link_to 'View', book_details_path(book.id), class: "btn btn-secondary" %>
+                    <%= link_to 'View', book_path(book.id), class: "btn btn-secondary" %>
                     <%= link_to "Add To Cart", add_to_cart_path(book.id), method: :post, class: "btn btn-secondary" %>
                 </div>
             </div>

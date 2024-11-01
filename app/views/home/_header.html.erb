@@ -3,13 +3,13 @@
         <div class="d-flex gap-4">
             <%= link_to 'MindKart', root_path, class: "navbar-brand" %>
             <ul class="navbar-nav d-flex flex-row gap-4">
-                <li class="nav-item"><%= link_to 'Books', book_list_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to 'Books', books_path, class: "nav-link" %></li>
             </ul>
         </div>
         <ul class="navbar-nav d-flex flex-row gap-4">
             <% if user_signed_in? %>
                 <% if current_user.admin? %>
-                    <li class="nav-item"><%= link_to 'Admin Dashboard', admin_path, class: "nav-link" %></li>
+                    <li class="nav-item"><%= link_to 'Admin Dashboard', dashboard_index_path, class: "nav-link" %></li>
                 <% end %>
                 <li class="nav-item">
                 <%= link_to "Cart (#{@cart_count})", cart_path, class:"nav-link" %></li>

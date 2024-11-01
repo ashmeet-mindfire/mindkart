@@ -1,20 +1,21 @@
-class BookController < ApplicationController
+class BooksController < ApplicationController
   def index
     @books = Book.all
   end
+
   def new
     @book = Book.new
     @categories = Category.all
   end
 
-  def details
+  def show
     @book = Book.find(params[:id])
   end
 
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to admin_path, notice: "Book created successfully"
+      redirect_to dashboard_index_path, notice: "Book created successfully"
     else
       @categories = Category.all
       render :new, status: :unprocessable_entity
@@ -29,7 +30,7 @@ class BookController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      redirect_to admin_path, notice: "Book was successfully updated."
+      redirect_to dashboard_index_path, notice: "Book was successfully updated."
     else
       @categories = Category.all
       render :edit, status: :unprocessable_entity
@@ -39,7 +40,7 @@ class BookController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to admin_path, notice: "Book deleted successfully"
+    redirect_to dashboard_index_path, notice: "Book deleted successfully"
   end
 
   private
