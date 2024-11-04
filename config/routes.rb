@@ -1,26 +1,17 @@
 Rails.application.routes.draw do
-  get "category/index"
-  get "shop/index"
-  get "book/new"
   devise_for :users
   root to: "home#index"
-
-  # Cart
-  get "cart", as: "cart", to: "cart#index"
-  post "cart/:book_id", as: "add_to_cart", to: "cart#add_item"
-  patch "cart/:id", as: "update_cart_item", to: "cart#update_item"
-  delete "cart/:id", as: "delete_book_from_cart", to: "cart#remove_item"
 
   # User
   patch "admin/user/:id", as: "make_admin", to: "users#make_admin"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :orders, only: [ :index, :show, :create ]
   resources :categories, only: [ :new, :create, :destroy ]
   resources :dashboard, only: [ :index ]
   scope :dashboard do
     resources :books, except: [ :index, :show ]
   resources :books, only: [ :index, :show ]
+  resources :cart_items, only: [ :index, :create, :destroy ]
   end
 
 
