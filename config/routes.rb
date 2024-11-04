@@ -12,15 +12,15 @@ Rails.application.routes.draw do
   delete "cart/:id", as: "delete_book_from_cart", to: "cart#remove_item"
 
   # User
-  patch "admin/user/:id", as: "make_admin", to: "user#make_admin"
+  patch "admin/user/:id", as: "make_admin", to: "users#make_admin"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :books, only: [ :index, :show ]
   resources :orders, only: [ :index, :show, :create ]
   resources :categories, only: [ :new, :create, :destroy ]
   resources :dashboard, only: [ :index ]
   scope :dashboard do
     resources :books, except: [ :index, :show ]
+  resources :books, only: [ :index, :show ]
   end
 
 

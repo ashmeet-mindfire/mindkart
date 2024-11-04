@@ -14,14 +14,19 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
     @order.status = "pending"
 
-    if @order.save
-      create_order_items
-      @order.calculate_total
-      @order.save
-      current_user.cart.destroy
-      redirect_to orders_path, notice: "Order placed successfully!"
+    if items_in_stock?
+      if @order.save
+        create_order_items
+        @order.calculate_total
+        @order.save
+        reduce_stock_quantity
+        current_user.cart.destroy
+        redirect_to orders_path, notice: "Order placed successfully!"
+      else
+        redirect_to cart_path, alert: "Failed to place order"
+      end
     else
-      redirect_to cart_path, notice: "Failed to place order"
+      redirect_to cart_path, alert: "Insufficient stock for one or more items in your cart"
     end
   end
 
@@ -51,6 +56,20 @@ class OrdersController < ApplicationController
         quantity: item.quantity,
         price: item.book.price * item.quantity
       )
+    end
+  end
+
+  def items_in_stock?
+    current_user.cart.cart_items.all? do |item|
+      item.book.stock_quantity >= item.quantity
+    end
+  end
+
+  def reduce_stock_quantity
+    current_user.cart.cart_items.each do |item|
+      book = item.book
+      book.stock_quantity -= item.quantity
+      book.save
     end
   end
 end

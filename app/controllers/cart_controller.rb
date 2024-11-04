@@ -19,7 +19,7 @@ class CartController < ApplicationController
       @cart.cart_items.create(book: book, quantity: 1)
     end
 
-    redirect_to book_list_path, notice: "Book added to cart."
+    redirect_to books_path, notice: "Book added to cart."
   end
 
   def remove_item
