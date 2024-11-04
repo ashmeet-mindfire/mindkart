@@ -5,7 +5,7 @@ class CartItemsController < ApplicationController
   end
   def create
     @cart = current_user.cart || Cart.create(user: current_user)
-    book = Book.find(params[:book_id])
+    book = Book.find(params[:id])
 
     cart_item = @cart.cart_items.find_by(book_id: book.id)
 
@@ -24,6 +24,6 @@ class CartItemsController < ApplicationController
     cart_item = @cart.cart_items.find(params[:id])
     cart_item.destroy
 
-    redirect_to cart_path
+    redirect_to cart_items_path
   end
 end
