@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
+    @category = Category.new(category_params)
     if @category.save
       redirect_to dashboard_index_path, notice: "Category created successfully"
     else
@@ -14,8 +14,11 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to dashboard_index_path, notice: "Category deleted successfully"
+    if @category.destroy
+      redirect_to dashboard_index_path, notice: "Category deleted successfully"
+    else
+      redirect_to dashboard_index_path, alert: "Failed to delete category. Please try again."
+    end
   end
 
   private

@@ -6,8 +6,17 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = current_user.orders.find(params[:id])
-    @order_items = @order.order_items
+    begin
+      @order = current_user.orders.find(params[:id])
+      @order_items = @order.order_items
+
+    rescue ActiveRecord::RecordNotFound
+      redirect_to orders_path, alert: "Order not found."
+
+    rescue StandardError => e
+      Rails.logger.error("Error displaying order: #{e.message}")
+      redirect_to orders_path, alert: "An error occurred while trying to display the order. Please try again."
+    end
   end
 
   def create
@@ -15,18 +24,27 @@ class OrdersController < ApplicationController
     @order.status = "pending"
 
     if items_in_stock?
-      if @order.save
-        create_order_items
-        @order.calculate_total
-        @order.save
-        reduce_stock_quantity
-        current_user.cart.destroy
-        redirect_to orders_path, notice: "Order placed successfully!"
-      else
-        redirect_to cart_path, alert: "Failed to place order"
+      begin
+        ActiveRecord::Base.transaction do
+          if @order.save
+            create_order_items
+            @order.calculate_total
+            @order.save!
+            reduce_stock_quantity
+            current_user.cart.destroy
+            redirect_to orders_path, notice: "Order placed successfully!"
+          else
+            raise ActiveRecord::RecordInvalid.new(@order)
+          end
+        end
+      rescue ActiveRecord::RecordInvalid
+        redirect_to cart_path, alert: "Failed to place order. Please review your order and try again."
+      rescue StandardError => e
+        Rails.logger.error("Error placing order: #{e.message}")
+        redirect_to cart_path, alert: "An unexpected error occurred. Please try again later."
       end
     else
-      redirect_to cart_path, alert: "Insufficient stock for one or more items in your cart"
+      redirect_to cart_path, alert: "Insufficient stock for one or more items in your cart."
     end
   end
 
