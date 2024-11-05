@@ -12,8 +12,10 @@
   <tbody>
 
   <% @orders.each_with_index do |order, idx| %>
+  <% current_page = params[:page].present? ? params[:page].to_i : 1 %>
+  <% serial_number = (current_page - 1) * @orders.limit_value + (idx + 1) %>
       <tr>
-      <th scope="row"><%= idx + 1%></th>
+      <th scope="row"><%= serial_number%></th>
       <td><%= order.total%></td>
       <td class="text-capitalize"><%= order.status%></td>
       <td><%= link_to image_tag("icons/details-icon.svg"), order_path(order.id)%></td>
@@ -21,3 +23,6 @@
   <% end %>
   </tbody>
 </table>
+
+<%= paginate @orders %>
+

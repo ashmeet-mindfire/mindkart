@@ -2,13 +2,21 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.page(params[:page]).per(5)
   end
 
   def show
     begin
       @order = current_user.orders.find(params[:id])
       @order_items = @order.order_items
+
+      missing_books = @order_items.select { |item| item.book.nil? }
+
+      if missing_books.any?
+        Rails.logger.warn("Order contains items with deleted books: #{missing_books.map(&:id).join(', ')}")
+        @order_items = @order_items.reject { |item| item.book.nil? }
+        flash.now[:alert] = "Some books in this order have been deleted and will not be displayed."
+      end
 
     rescue ActiveRecord::RecordNotFound
       redirect_to orders_path, alert: "Order not found."
@@ -48,14 +56,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # def update
-  #   @order = Order.find(params[:id])
-  #   if @order.update(update_order_params)
-  #     redirect_to dashboard_index_path, notice: "Order status updated successfully"
-  #   else
-  #     redirect_to dashboard_index_path, notice: "Something went wrong"
-  #   end
-  # end
   private
 
   def order_params

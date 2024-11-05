@@ -34,6 +34,8 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate @books %>
+
 
 <div class="mt-4 d-flex justify-content-between align-items-center">
     <h2 class="">Orders</h2>
@@ -62,6 +64,8 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate @orders %>
+
 
 <div class="mt-4 d-flex justify-content-between align-items-center">
     <h2 class="">Catgories</h2>
@@ -87,6 +91,8 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate @categories %>
+
 
 <div class="mt-4 d-flex justify-content-between align-items-center">
     <h2 class="">Users</h2>
@@ -118,6 +124,8 @@
   <% end %>
   </tbody>
 </table>
+<%= paginate @users %>
+
 <%#= user.admin == true ? "Yes" : "No"%>
 <%#= form_with model: order, url: order_path(order.id), method: :patch, class: "d-flex gap-2", local: true do %>
     <%#= select_tag "order[status]", options_for_select(["Pending", "In Review", "Processed", "Shipped", "Delivered"], selected: order.status), class: "form-select", style: "width: 150px;" %>

@@ -2,10 +2,10 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_only
   def index
-    @books = Book.all
-    @orders = Order.all.order(id: :asc)
-    @categories = Category.all
-    @users = User.where.not(id: current_user.id)
+    @books = Book.page(params[:page]).per(5)
+    @orders = Order.page(params[:page]).per(5)
+    @categories = Category.page(params[:page]).per(5)
+    @users = User.where.not(id: current_user.id).page(params[:page]).per(5)
   end
 
   private
