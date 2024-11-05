@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: %i[ show edit update destroy ]
   def index
     @books = Book.all
   end
@@ -9,11 +10,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    begin
-      @book = Book.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to books_path, alert: "Book not found."
-    end
   end
 
   def create
@@ -28,21 +24,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-    begin
-      @book = Book.find(params[:id])
-      @categories = Category.all
-    rescue ActiveRecord::RecordNotFound
-      redirect_to dashboard_index_path, alert: "Book not found."
-    end
+    @categories = Category.all
   end
 
   def update
-    @book = Book.find_by(id: params[:id])
-    if @book.nil?
-      redirect_to dashboard_index_path, alert: "Book not found."
-      return
-    end
-
     if @book.update(book_params)
       redirect_to dashboard_index_path, notice: "Book was successfully updated."
     else
@@ -53,12 +38,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find_by(id: params[:id])
-    if @book.nil?
-      redirect_to dashboard_index_path, alert: "Book not found."
-      return
-    end
-
     if @book.destroy
       redirect_to dashboard_index_path, notice: "Book deleted successfully."
     else
@@ -70,5 +49,13 @@ class BooksController < ApplicationController
   private
   def book_params
     params.require(:book).permit(:title, :author, :isbn, :price, :description, :stock_quantity, :published_date, :publisher, :category_id, :image)
+  end
+
+  def set_book
+    begin
+      @book = Book.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to books_path, alert: "Book not found."
+    end
   end
 end

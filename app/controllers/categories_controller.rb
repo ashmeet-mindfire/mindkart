@@ -13,11 +13,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    if @category.destroy
-      redirect_to dashboard_index_path, notice: "Category deleted successfully"
-    else
-      redirect_to dashboard_index_path, alert: "Failed to delete category. Please try again."
+    begin
+      @category = Category.find(params[:id])
+      if @category.destroy
+        redirect_to dashboard_index_path, notice: "Category deleted successfully"
+      else
+        redirect_to dashboard_index_path, alert: "Failed to delete category. Please try again."
+      end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to dashboard_index_path, alert: "Category not found"
     end
   end
 
