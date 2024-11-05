@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   resources :orders, only: [ :index, :show, :create ]
   resources :categories, only: [ :new, :create, :destroy ]
   resources :dashboard, only: [ :index ]
-  scope :dashboard do
-    resources :books, except: [ :index, :show ]
-  resources :books, only: [ :index, :show ]
+  # scope :dashboard do
+  #   resources :books, except: [ :index, :show ]
+  # end
+  resources :books
   resources :cart_items, only: [ :index, :create, :destroy ]
-  end
-
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

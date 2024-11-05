@@ -53,7 +53,7 @@ class BooksController < ApplicationController
 
   def set_book
     begin
-      @book = Book.find(params[:id])
+      @book = Book.friendly.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to books_path, alert: "Book not found."
     end

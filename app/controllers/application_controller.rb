@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       @cart_count = current_user.cart&.total_items || 0
     end
   end
+
+  def log_error_in_bold_red(message)
+    bold_red_color = "\e[31;1m"  # ANSI code for bold red
+    reset_color = "\e[0m"        # ANSI code to reset color
+    Rails.logger.error("#{bold_red_color}#{message}#{reset_color}")
+  end
 end
