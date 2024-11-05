@@ -45,3 +45,13 @@
 .home__tagline {
     font-size: 30px;
 }
+
+.custom-pagination-container {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-pagination-container .custom-pagination {
+    display: flex;
+    gap: 10px;
+}
