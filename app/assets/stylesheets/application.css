@@ -55,3 +55,21 @@
     display: flex;
     gap: 10px;
 }
+
+.category-container {
+    display: flex;
+    gap: 20px;
+}
+
+.category-container .category-item {
+    list-style: none;
+    padding: 10px 20px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.category-container .category-item a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+}

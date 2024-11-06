@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   patch "admin/user/:id", as: "make_admin", to: "users#make_admin"
 
   resources :orders, only: [ :index, :show, :create ]
-  resources :categories, only: [ :new, :create, :destroy ]
+  resources :categories, except: [ :update ]
   resources :dashboard, only: [ :index ]
   # scope :dashboard do
   #   resources :books, except: [ :index, :show ]

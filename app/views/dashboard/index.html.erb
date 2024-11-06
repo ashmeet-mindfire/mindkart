@@ -29,7 +29,7 @@
       <td><%= book.description[0..50]%>...</td>
       <td><%= book.price%></td>
       <td><%= book.stock_quantity%></td>
-      <td><%= link_to image_tag("icons/delete-icon.svg"), book_path(book.id), method: :delete %><%= link_to image_tag("icons/edit-icon.svg"), edit_book_path(book.id) %> <%#= link_to image_tag("icons/edit-icon.svg"), edit_friend_path(friend.id) %> <%# link_to "#{friend.posts_count}", friend_posts_path(friend.id) %></td>
+      <td><%= link_to image_tag("icons/delete-icon.svg"), book_path(book), method: :delete %><%= link_to image_tag("icons/edit-icon.svg"), edit_book_path(book) %> <%#= link_to image_tag("icons/edit-icon.svg"), edit_friend_path(friend.id) %> <%# link_to "#{friend.posts_count}", friend_posts_path(friend.id) %></td>
     </tr>
   <% end %>
   </tbody>

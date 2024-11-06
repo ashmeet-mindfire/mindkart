@@ -7,7 +7,9 @@
         <p>Publisher: <span class="fw-semibold"><%= @book.publisher %></span></p>
         <p>Published Date: <span class="fw-semibold"><%= @book.published_date %></span></p>
         <p>ISBN: <span class="fw-semibold"><%= @book.isbn %></span></p>
-        <%= link_to "Add To Cart", cart_items_path(id: @book.id), method: :post, class: "btn btn-secondary" %>
+        <% if user_signed_in? %>
+            <%= link_to "Add To Cart", cart_items_path(id: @book.id), method: :post, class: "btn btn-secondary" %>
+        <% end %>
     </div>
     <div class="w-100 d-flex justify-content-center">
         <%= image_tag @book.image, class: "img-fluid", style: "" %>

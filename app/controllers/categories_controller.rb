@@ -3,6 +3,11 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def show
+    @category = Category.find(params[:id])
+    @books = @category.books.page(params[:page]).per(10)
+  end
+
   def create
     @category = Category.new(category_params)
     if @category.save
