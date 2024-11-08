@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   # User
-  patch "admin/user/:id", as: "make_admin", to: "users#make_admin"
+  resources :users do
+    member do
+      patch :change_admin_status
+    end
+  end
 
   resources :orders, only: [ :index, :show, :create ]
   resources :categories, except: [ :update ]
@@ -11,7 +15,11 @@ Rails.application.routes.draw do
   # scope :dashboard do
   #   resources :books, except: [ :index, :show ]
   # end
-  resources :books
+  resources :books do
+    member do
+      patch "restore"
+    end
+  end
   resources :cart_items, only: [ :index, :create, :destroy ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

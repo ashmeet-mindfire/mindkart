@@ -13,41 +13,41 @@
     <div class="row mb-3">
         <div class="col-sm">
             <%= f.label :title, class: "form-label" %>
-            <%= f.text_field :title, class: "form-control" %>
+            <%= f.text_field :title, class: "form-control", required: true %>
         </div>
             <div class="col-sm">
             <%= f.label :author, class: "form-label" %>
-            <%= f.text_field :author, class: "form-control" %>
+            <%= f.text_field :author, class: "form-control", required: true %>
         </div>
             <div class="col-sm">
             <%= f.label :isbn, class: "form-label text-uppercase" %>
-            <%= f.text_field :isbn, class: "form-control" %>
+            <%= f.text_field :isbn, class: "form-control", required: true %>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-sm-4">
             <%= f.label :price, class: "form-label" %>
-            <%= f.number_field :price, class: "form-control" %>
+            <%= f.number_field :price, class: "form-control", required: true %>
         </div>
 
         <div class="col-sm">
             <%= f.label :description, class: "form-label" %>
-            <%= f.text_field :description, class: "form-control" %>
+            <%= f.text_field :description, class: "form-control", required: true %>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col-sm">
             <%= f.label :stock_quantity, class: "form-label" %>
-            <%= f.number_field :stock_quantity, class: "form-control" %>
+            <%= f.number_field :stock_quantity, class: "form-control", required: true %>
         </div>
 
         <div class="col-sm">
             <%= f.label :published_date, class: "form-label" %>
-            <%= f.date_field :published_date, class: "form-control" %>
+            <%= f.date_field :published_date, class: "form-control", required: true %>
         </div>
         <div class="col-sm">
             <%= f.label :publisher, class: "form-label" %>
-            <%= f.text_field :publisher, class: "form-control" %>
+            <%= f.text_field :publisher, class: "form-control", required: true %>
         </div>
     </div>
     <div class="row mb-3">
@@ -57,10 +57,8 @@
         </div>
 
         <div class="col-sm">
-            <%#= f.label :cover_image, class: "form-label" %>
-            <%#= f.text_field :cover_image, class: "form-control" %>
             <%= f.label :image, class: "form-label" %>
-            <%= f.file_field :image, class: "form-control" %>
+            <%= f.file_field :image, class: "form-control", required: true %>
         </div>
     </div>
     <div class="row">

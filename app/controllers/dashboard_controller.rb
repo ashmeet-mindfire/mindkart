@@ -6,12 +6,6 @@ class DashboardController < ApplicationController
     @orders = Order.page(params[:page]).per(5)
     @categories = Category.page(params[:page]).per(5)
     @users = User.where.not(id: current_user.id).page(params[:page]).per(5)
-  end
-
-  private
-  def admin_only
-    unless current_user.admin?
-      redirect_to root_path, alert: "You are not authorized to access this page."
-    end
+    @deleted_books = Book.only_deleted.page(params[:page]).per(5)
   end
 end

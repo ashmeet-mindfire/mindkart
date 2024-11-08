@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
+  acts_as_paranoid
 
   has_many :cart_items
   has_many :carts, through: :cart_items

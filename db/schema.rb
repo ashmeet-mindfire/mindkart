@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_05_125320) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_07_081318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_125320) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.string "slug"
+    t.datetime "deleted_at"
     t.index ["slug"], name: "index_books_on_slug", unique: true
   end
 
@@ -118,7 +119,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_05_125320) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
+    t.boolean "is_admin", default: false
     t.string "name"
     t.string "mobile"
     t.index ["email"], name: "index_users_on_email", unique: true

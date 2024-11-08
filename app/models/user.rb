@@ -6,8 +6,4 @@ class User < ApplicationRecord
 
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
-
-  def admin?
-    self.admin == true
-  end
 end

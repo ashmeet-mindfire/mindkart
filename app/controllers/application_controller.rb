@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [ :name, :mobile ])
   end
 
+
+  def admin_only
+    unless current_user.is_admin?
+      redirect_to root_path, alert: "You are not authorized to access this page."
+    end
+  end
+
   def set_cart_count
     if current_user
       @cart_count = current_user.cart&.total_items || 0

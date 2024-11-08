@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :admin_only, only: %i[ edit update destroy ]
   def index
     @books = Book.page(params[:page]).per(10)
   end
@@ -43,6 +44,19 @@ class BooksController < ApplicationController
     else
       Rails.logger.error("Failed to delete book with ID: #{@book.id}")
       redirect_to dashboard_index_path, alert: "Failed to delete the book."
+    end
+  end
+
+  def restore
+    begin
+      @book = Book.only_deleted.find(params[:id])
+      if @book.restore
+        redirect_to dashboard_index_path, notice: "Book was successfully restored."
+      else
+        redirect_to dashboard_index_path, alert: "Failed to restore the book."
+      end
+    rescue ActiveRecord::RecordNotFound
+      redirect_to books_path, alert: "Book not found."
     end
   end
 
