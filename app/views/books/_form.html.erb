@@ -27,7 +27,7 @@
     <div class="row mb-3">
         <div class="col-sm-4">
             <%= f.label :price, class: "form-label" %>
-            <%= f.number_field :price, class: "form-control", required: true %>
+            <%= f.number_field :price, class: "form-control", required: true, min: 0 %>
         </div>
 
         <div class="col-sm">
@@ -38,7 +38,7 @@
     <div class="row mb-3">
         <div class="col-sm">
             <%= f.label :stock_quantity, class: "form-label" %>
-            <%= f.number_field :stock_quantity, class: "form-control", required: true %>
+            <%= f.number_field :stock_quantity, class: "form-control", required: true, min: 0 %>
         </div>
 
         <div class="col-sm">

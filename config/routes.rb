@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   resources :orders, only: [ :index, :show, :create ]
   resources :categories, except: [ :update ]
   resources :dashboard, only: [ :index ]
-  # scope :dashboard do
-  #   resources :books, except: [ :index, :show ]
-  # end
   resources :books do
     member do
       patch "restore"
