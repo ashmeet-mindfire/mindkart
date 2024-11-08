@@ -20,7 +20,7 @@ gem "jbuilder"
 gem "devise"
 gem "ostruct"
 gem "kaminari"
-gem "friendly_id", "~> 5.4.0"
+gem "friendly_id", "~> 5.5.1"
 gem "paranoia"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
